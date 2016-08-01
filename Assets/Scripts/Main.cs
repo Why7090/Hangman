@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Advertisements;
 using ExtensionMethods;
 
 public class Main : MonoBehaviour {
@@ -59,6 +60,10 @@ public class Main : MonoBehaviour {
         reloadButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene(0);
+            if (Advertisement.IsReady())
+            {
+                Advertisement.Show();
+            }
         });
         quitButton.onClick.AddListener(delegate
         {
