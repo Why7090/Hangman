@@ -60,10 +60,12 @@ public class Main : MonoBehaviour {
         reloadButton.onClick.AddListener(delegate
         {
             SceneManager.LoadScene(0);
+#if UNITY_IOS || UNITY_ANDROID
             if (Advertisement.IsReady())
             {
                 Advertisement.Show();
             }
+#endif
         });
         quitButton.onClick.AddListener(delegate
         {
